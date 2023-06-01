@@ -3,7 +3,7 @@ using EspacioCalculadora;
 Console.WriteLine("Hello, World!");
 int operacion;
 operacion = 0;
-int intNum1;
+int intNum1 = 0;
 bool anda;
 string? numString;
 void menu(){
