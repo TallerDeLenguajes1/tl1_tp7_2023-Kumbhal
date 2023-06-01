@@ -22,25 +22,26 @@ while (operacion != 9){
         }
     }
     operacion = intNum1;
-    Console.WriteLine("Ingrese el numero: ");
-    numString = Console.ReadLine();
-    int.TryParse(numString, out intNum1);
-    switch (operacion){
-        case 1:
-            calc.Suma(intNum1);
-            break;
-        case 2:
-            calc.Resta(intNum1);
-            break;
-        case 3:
-            calc.Multiplicar(intNum1);
-            break;
-        case 4:
-            calc.Dividir(intNum1);
-            break;
-        case 5:
-            calc.Limpiar();
-            break;
+    if(operacion == 5){
+        calc.Limpiar();
+    }else if (operacion != 9){
+        Console.WriteLine("Ingrese el numero: ");
+        numString = Console.ReadLine();
+        int.TryParse(numString, out intNum1);
+        switch (operacion){
+            case 1:
+                calc.Suma(intNum1);
+                break;
+            case 2:
+                calc.Resta(intNum1);
+                break;
+            case 3:
+                calc.Multiplicar(intNum1);
+                break;
+            case 4:
+                calc.Dividir(intNum1);
+                break;
+        }
     }
     Console.WriteLine("\nResultado: " + calc.Resultado);
 }
