@@ -93,3 +93,64 @@ switch (dato){
         EmpleadoNuevo.Sexo = sexos.Otro;
         break;
 }
+funciona = false;
+while (!funciona){
+    Console.WriteLine("Ingrese el dia de nacimiento: ");
+    int.TryParse(stringNum, out anio);
+    if (anio <= 0){
+        Console.WriteLine("Ingrese un anio valido.");
+    }else{
+        Console.WriteLine("Ingres el mes de nacimiento: ");
+        int.TryParse(stringNum, out mes);
+        if (mes < 1 | mes > 12){
+            Console.WriteLine("Ingrese un mes valido.");
+        }else{
+            Console.WriteLine("Ingrese dia de nacimiento: ");
+            int.TryParse(stringNum, out dia);
+            if (dia < 1 | dia > 31){
+                Console.WriteLine("Ingrese un dia valido.");
+            }else{
+                funciona = true;
+            }
+        }
+    }
+}
+EmpleadoNuevo.fdi = new DateTime(anio,mes,dia);
+funciona = false;
+while(!funciona){
+    Console.WriteLine("Ingrese el sueldo del empleado: ");
+    int.TryParse(stringNum, out dato);
+    if (dato < 0){
+        Console.WriteLine("Ingrese un sueldo valido.");
+    }else{
+        funciona = true;
+    }
+}
+EmpleadoNuevo.sueldo = dato;
+funciona = false;
+while (!funciona){
+    Console.WriteLine("Cargos\n1)Auxiliar\n2)Administrativo\n3)Ingeniero\n4)Especialista\n5)Investigador");
+    int.TryParse(stringNum, out dato);
+    if(dato < 1 | dato > 5){
+        Console.WriteLine("Ingrese una entrada valida.");
+    }else{
+        funciona = true;
+    }
+}
+switch (dato){
+    case 1:
+        EmpleadoNuevo.cargo = cargos.Auxiliar;
+        break;
+    case 2:
+        EmpleadoNuevo.cargo = cargos.Administrativo;
+        break;
+    case 3:
+        EmpleadoNuevo.cargo = cargos.Ingeniero;
+        break;
+    case 4:
+        EmpleadoNuevo.cargo = cargos.Especialista;
+        break;
+    case 5:
+        EmpleadoNuevo.cargo = cargos.Investigador;
+        break;
+}
