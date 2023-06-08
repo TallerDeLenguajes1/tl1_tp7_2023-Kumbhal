@@ -18,6 +18,7 @@ public enum cargos{
         Investigador
 }    
 public class Empleados{
+    private double valor = 0;
     public string? nombre;
     public string? apellido;
     public DateTime fdn;
@@ -26,4 +27,13 @@ public class Empleados{
     public DateTime fdi;
     public double sueldo;
     public cargos cargo;
+    public double Resultado{
+        get => valor;
+    }
+    public void Antiguedad(DateTime ingreso){
+        valor = DateTime.Now.Year - ingreso.Year;
+    }
+    public void Edad(DateTime nacimiento){
+        valor = DateTime.Now.Year - nacimiento.Year;
+    }
 }

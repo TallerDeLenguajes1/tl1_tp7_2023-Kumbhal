@@ -7,6 +7,9 @@ int anio = 0;
 int mes = 0;
 int dia = 0;
 Empleados EmpleadoNuevo = new Empleados();
+void menu(){
+    Console.WriteLine("1. Antiguedad de Empleado\n2. Edad de Empleado\n3. Cantidad de anios para jubilarse\n4. Salir\nElija una opcion: ");
+}
 while (!funciona){
     Console.Write("Ingrese el nombre del empleado: ");
     stringNum = Console.ReadLine();
@@ -153,4 +156,25 @@ switch (dato){
     case 5:
         EmpleadoNuevo.cargo = cargos.Investigador;
         break;
+}
+while (dato != 4){
+    funciona = false;
+    menu();
+    while (!funciona){
+        stringNum = Console.ReadLine();
+        funciona = int.TryParse(stringNum, out dato);
+        if(!funciona){
+            Console.WriteLine("Ingrese una opcion valida.");
+        }
+    }
+    switch (dato){
+        case 1:
+            Console.WriteLine("Antiguedad empleado: ");
+            EmpleadoNuevo.Antiguedad(EmpleadoNuevo.fdi);
+            break;
+        case 2:
+            Console.WriteLine("Edad empleado: ");
+            EmpleadoNuevo.Edad(EmpleadoNuevo.fdn);
+            break;
+    }
 }
