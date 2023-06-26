@@ -1,13 +1,13 @@
 namespace EstadoEmpleado;
 public enum estadoCiviles{
-    Soltero,
-    Casado,
-    Otros
+    Soltero = 1,
+    Casado = 2,
+    Otros = 3
 }
 public enum sexos{
-    Masculino,
-    Femenino,
-    Otro
+    Masculino = 1,
+    Femenino = 2,
+    Otro = 3
 }
 public enum cargos{
     
@@ -30,10 +30,22 @@ public class Empleados{
     public double Resultado{
         get => valor;
     }
+
     public void Antiguedad(DateTime ingreso){
         valor = DateTime.Now.Year - ingreso.Year;
+        Console.WriteLine(valor);
     }
     public void Edad(DateTime nacimiento){
         valor = DateTime.Now.Year - nacimiento.Year;
+        Console.WriteLine(valor);
+    }
+    public void Jubilacion(DateTime nacimiento, sexos sexoEmpleado){
+        valor = DateTime.Now.Year - nacimiento.Year;
+        if (sexoEmpleado == sexos.Femenino){
+            valor = 60 - valor;
+        }else{
+            valor = 65 - valor;
+        }
+        Console.WriteLine(valor);
     }
 }
